@@ -41,6 +41,32 @@
 1. Show that $16 n^4 + 4 n^2 + 1$ is composite for every $n \in \N$.
 
 \begin{proof}
+
+Note that we can express
+%
+\begin{equation}
+    16 n^4 + 4 n^2 + 1 = (4 n^2 - 2 n + 1) (4 n^2 + 2 n + 1)
+    .
+    \label{q1-1}
+\end{equation}
+%
+For all $n \in N$, both
+$1 < 4 n^2 - 2 n + 1$ and
+$1 < 4 n^2 + 2 n + 1$
+(both polynomials are strictly increasing and have minimum values of $5$
+and $7$, respectively). Also, both factors in~\eqref{q1-1} are clearly
+strictly less than $16 n^4 + 4 n^2 + 1$, using~\eqref{q1-1} and the fact
+that $16 n^4 + 4 n^2 + 1$ is always positive.
+
+Hence we have that
+%
+\begin{equation*}
+    16 n^4 + 4 n^2 + 1 = p q
+\end{equation*}
+%
+for every $n \in \N$ where $1 < p, q < 16 n^4 + 4 n^2 + 1$.
+Thus it follows that $16 n^4 + 4 n^2 + 1$ is composite for every $n \in \N$.
+
 \end{proof}
 
 \newpage
@@ -49,6 +75,17 @@
    $n! + 1$ exceeding $n$.
 
 \begin{proof}
+
+We will consider two (exhaustive) cases. For the first case, suppose $n!
++ 1$ is prime. Then $n! + 1$ has a prime factor (namely, itself) which
+is larger than $n$.
+
+For the second case, suppose $n! + 1$ is composite. Then there exists
+some prime factor $p \in \N$; that is, $p|n! + 1$ and $p$ is prime. If
+$p > n$ then we are done. Suppose $p \leq n$: then clearly $p|n!$, but
+taking this together with $p|n! + 1$ implies that $p|1$, which further
+implies that $p = 1$---a contradiction. Hence we must have $p > n$.
+
 \end{proof}
 
 \newpage
@@ -56,6 +93,12 @@
 3. Using question 2, show that there are infinitely many primes.
 
 \begin{proof}
+
+Suppose for contradiction that there were finitely many primes. Let $n$
+be the largest prime. Then, by question 2, there exists a prime factor
+$p$ of $n! + 1$ such that $p > n$. But this contradicts that $n$ was the
+largest prime. Hence there must be infinitely many primes.
+
 \end{proof}
 
 \newpage
@@ -64,6 +107,18 @@
    composite integers.
 
 \begin{proof}
+
+We will prove that the integers in the set $S = \cbr{m + (k + 1)!: m \in
+\cbr{2, \ldots, k + 1}}$ form a string of $k$ consecutive composite
+integers. It should be clear that the elements in $S$ can be arranged in
+a string of $k$ consecutive integers. What remains is to show that each
+element in $S$ is composite.
+
+Each element of $S$ has the form $m + (k + 1)!$ where $2 \leq m \leq k +
+1$. Clearly both $m|m$ and $m|(k + 1)!$, so $m|m + (k + 1)!$. Because $m
+\neq 1, m + (k + 1)!$, it follows that $m + (k + 1)!$ is composite.
+Hence every element of $S$ is composite.
+
 \end{proof}
 
 \newpage
@@ -72,6 +127,12 @@
    $c|d$ then $ac|(ad + bc)$.
 
 \begin{proof}
+
+Suppose both $a|b$ and $c|d$. Then for some $k_1, k_2 \in \Z$, we have
+$a = k_1 b$ and $c = k_2 d$. Multiplying through by $c$ and $a$,
+respectively, we also have $a c = k_1 (b c)$ and $a c = k_2 (a d)$. Thus
+$ac|bc$ and $ac|ad$, so $ac|ad + bc$.
+
 \end{proof}
 
 \newpage
@@ -80,5 +141,28 @@
    $x$ and $y$ which satisfy $405x + 126y = d$.
 
 \textit{Solution.}
+We can find the greatest common divisor using the Euclidean Algorithm.
+For the forwards step we have
+%
+\begin{align*}
+    405 &= 3 \cdot 126 + 27, \\
+    126 &= 4 \cdot 27 + 18, \\
+    27 &= 1 \cdot 18 + 9, \\
+    18 &= 2 \cdot 9 + 0.
+\end{align*}
+%
+Hence the greatest common divisor $d = 9$. We can find the Bezout
+coefficients by performing the backwards step:
+%
+\begin{align*}
+    9 &= 27 - 1 \cdot 18 \\
+      &= \del{405 - 3 \cdot 126} - 1 \cdot \del{126 - 4 \cdot 27} \\
+      &= \del{405 - 3 \cdot 126} - 1 \cdot \del{126 - 4 \cdot \del{405 - 3 \cdot 126}} \\
+      &= (1 + 4) 405 + (-3 - 1 - 12) 126 \\
+      &= 5 \cdot 405 + (-16) \cdot 126
+      .
+\end{align*}
+%
+Hence the Bezout coefficients $x, y$ satisfying $405 x + 126 y = d$ are $x = 5, y = -16$.
 
 \end{document}
