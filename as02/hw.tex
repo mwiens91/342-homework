@@ -42,6 +42,16 @@
    the partial quotient of $1$, of $503/126$.
 
 \textit{Solution.}
+Here we will generate the continued fraction expansion from the
+Euclidean Algorithm:
+%
+\begin{equation*}
+    504 = 4 \cdot 126 + 0
+    .
+\end{equation*}
+%
+Hence, we see that we can write the desired simple continued fraction
+expansion as $503 / 126 = 4$ or, using the notation in the notes, $[4]$.
 
 \newpage
 
@@ -88,6 +98,15 @@
 (a) $[\alpha + n] = [\alpha] + n$;
 
 \begin{proof}
+
+Here I will assume that $\alpha \in \R$ and $n \in \Z$ (these aren't
+specified in the question but I think it's suggested).
+
+Let $x \in \Z$ be the integer such that $x = [\alpha]$. Then we have
+that $x \leq \alpha < x + 1$. Adding through by $n$ we have $x + n \leq
+\alpha + n < x + n + 1$. This shows that $[\alpha + n] = x + n = [\alpha
++ n]$.
+
 \end{proof}
 
 \vspace{5mm}
@@ -95,6 +114,31 @@
 (b) $\frac{m + 1}{n} \leq \sbr{\frac{m}{n}} + 1, n > 0$.
 
 \begin{proof}
+
+Here I will assume that $m, n \in \Z$. Let $x = \sbr{\frac{m}{n}}$. We
+know that $x \leq \frac{m}{n} < x + 1$. Multiplying through by $n$ we
+have that
+%
+\begin{equation}
+    x n \leq m < x n + n
+    .
+    \label{eq:5b}
+\end{equation}
+%
+We also have that $x n \leq m \leq x n + n - 1$: this is because if $n =
+1$, $x = \frac{m}{n} = m$ so the inequality reduces to $m \leq m \leq
+m$; if $n > 1$ then $n - 1 \geq 1$, so $m$ being an integer combined
+with~\eqref{eq:5b} results in the desired inequality.
+
+Dividing through by $n$, we get
+$x \leq \frac{m}{n} \leq x + 1 - \frac{1}{n}$. Adding through by
+$\frac{1}{n}$ we obtain
+%
+\begin{equation*}
+    \frac{m + 1}{n} \leq x + 1 = \sbr{\frac{m}{n}} + 1
+    .
+\end{equation*}
+
 \end{proof}
 
 \end{document}
