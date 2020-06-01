@@ -236,9 +236,9 @@ the solutions
     ,
 \end{align*}
 %
-with $k_1 = 0, 1, 2, 3, 4,$. Now we can solve for $n + 2 d = 5 k_1$. We
+with $k_1 = 0, 1, 2, 3, 4$. Now we can solve for $n + 2 d = 5 k_1$. We
 can see by inspection that $\gcd(1, 2) = 1$ and that
-$(n_0, d_0) = (5k_1, 0)$ is a particular solution, so solutions are
+$(n_0, d_0) = (5k_1, 0)$ is a particular solution, so the solutions are
 %
 \begin{align*}
     n &= 5 k_1  + 2 k_2, \\
@@ -336,8 +336,8 @@ specified in the question but I think it's suggested).
 
 Let $x \in \Z$ be the integer such that $x = [\alpha]$. Then we have
 that $x \leq \alpha < x + 1$. Adding through by $n$ we have $x + n \leq
-\alpha + n < x + n + 1$. This shows that $[\alpha + n] = x + n = [\alpha
-+ n]$.
+\alpha + n < x + n + 1$. This shows that
+$[\alpha + n] = x + n = [\alpha] + n$.
 
 \end{proof}
 
@@ -357,10 +357,17 @@ have that
     \label{eq:5b}
 \end{equation}
 %
-We also have that $x n \leq m \leq x n + n - 1$: this is because if $n =
-1$, $x = \frac{m}{n} = m$ so the inequality reduces to $m \leq m \leq
-m$; if $n > 1$ then $n - 1 \geq 1$, so $m$ being an integer combined
-with~\eqref{eq:5b} results in the desired inequality.
+We also have that
+%
+\begin{equation*}
+    x n \leq m \leq x n + n - 1
+    .
+\end{equation*}
+%
+This is because if $n = 1$, $x = \frac{m}{n} = m$ so the inequality
+reduces to $m \leq m \leq m$; if $n > 1$ then $n - 1 \geq 1$, so this
+fact, the fact that $x$ and $n$ are integers (which imples $x n$ is an
+integer), and~\eqref{eq:5b} result in the desired inequality.
 
 Dividing through by $n$, we get
 $x \leq \frac{m}{n} \leq x + 1 - \frac{1}{n}$. Adding through by
