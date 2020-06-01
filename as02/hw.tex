@@ -59,6 +59,106 @@ expansion as $503 / 126 = 4$ or, using the notation in the notes, $[4]$.
 
 \textit{Solution.}
 
+Recognizing that $\sbr[1]{\sqrt{7}} = 2$ we can start by writing
+%
+\begin{equation*}
+    \sqrt{7} = 2 + (\sqrt{7} - 2) = 2 + \frac{1}{\frac{1}{\sqrt{7} - 2}}
+    .
+\end{equation*}
+%
+We can simplify the denominator by multiplying by $1$:
+%
+\begin{equation*}
+    \frac{1}{\sqrt{7} - 2} \cdot \frac{\sqrt{7} + 2}{\sqrt{7} + 2}
+    = \frac{\sqrt{7} + 2}{3}
+    .
+\end{equation*}
+%
+Since $\sbr{\frac{\sqrt{7} + 2}{3}} = [1.55] = 1$, we can further write
+%
+\begin{equation*}
+    \frac{\sqrt{7} + 2}{3} = 1 + \frac{\sqrt{7} - 1}{3}
+    .
+\end{equation*}
+%
+Hence we have that
+%
+\begin{equation*}
+    \sqrt{7} = 2 + \frac{1}{1 + \frac{1}{\frac{3}{\sqrt{7} - 1}}}
+    .
+\end{equation*}
+%
+For the ``inner-most fraction'' we again multiply by 1:
+%
+\begin{equation*}
+    \frac{3}{\sqrt{7} - 1} \cdot \frac{\sqrt{7} + 1}{\sqrt{7} + 1} = \frac{\sqrt{7} + 1}{2}
+    .
+\end{equation*}
+%
+Because $\sbr{\frac{\sqrt{7} + 1}{2}} = [1.82] = 1$, we can write
+%
+\begin{equation*}
+    \frac{\sqrt{7} + 1}{2} = 1 + \frac{\sqrt{7} - 1}{2}
+    .
+\end{equation*}
+%
+Therefore, we can write our original expression as
+%
+\begin{equation*}
+    \sqrt{7} = 2 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\frac{2}{\sqrt{7} - 1}}}}
+    .
+\end{equation*}
+%
+Now we play the same game of multiplying by $1$ for the inner-most fraction:
+%
+\begin{equation*}
+    \frac{2}{\sqrt{7} - 1} \cdot \frac{\sqrt{7} + 1}{\sqrt{7} + 1} = \frac{\sqrt{7} + 1}{3}
+    .
+\end{equation*}
+%
+Since $\sbr{\frac{\sqrt{7} + 1}{3}} = [1.22] = 1$ we can write
+%
+\begin{equation*}
+    \frac{\sqrt{7} + 1}{3} = 1 + \frac{\sqrt{7} - 2}{3}
+    ,
+\end{equation*}
+%
+which lets us write our original expression as
+%
+\begin{equation*}
+    \sqrt{7} = 2 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\frac{3}{\sqrt{7} - 2}}}}}
+    .
+\end{equation*}
+%
+Now we multiply the inner-most fraction by $1$:
+%
+\begin{equation*}
+    \frac{3}{\sqrt{7} - 2} \cdot \frac{\sqrt{7} + 2}{\sqrt{7} + 2} = \sqrt{7} + 2
+    .
+\end{equation*}
+%
+Since $\sbr[1]{\sqrt{7} + 2} = [4.65] = 4$, we can write
+%
+\begin{equation*}
+    \sqrt{7} + 2 = 4 + (\sqrt{7} - 2)
+    .
+\end{equation*}
+%
+Coming back to our main expression we have
+%
+\begin{equation*}
+    \sqrt{7} = 2 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{4 + \frac{1}{\frac{1}{\sqrt{7} - 2}}}}}}
+    .
+\end{equation*}
+%
+However, we have already solved for $\frac{1}{\sqrt{7} - 2}$ above, so
+the pattern now repeats and we can conclude that
+%
+\begin{equation*}
+    \sqrt{7} = [2; 1, 1, 1, 4, 1, 1, 1, 4, \ldots]
+    .
+\end{equation*}
+
 \newpage
 
 3. Find all solutions where $x$ and $y$ are integers to the Diophantine
@@ -70,6 +170,30 @@ expansion as $503 / 126 = 4$ or, using the notation in the notes, $[4]$.
 \end{equation*}
 
 \textit{Solution.}
+We first write this equation as $5x + 5y - xy = 0$. Solving for $x$ in
+this equation we obtain
+%
+\begin{equation*}
+    x = \frac{5 y}{y - 5}
+    .
+\end{equation*}
+%
+Carrying out this division, we further have
+%
+\begin{equation*}
+    x = 5 + \frac{25}{y - 5}
+    .
+\end{equation*}
+%
+Thus our solutions are integral whenever $(y - 5)|25$; that is, when $y
+- 5 = \pm 1, \pm 5, \pm 25$. This gives us the possible values for $y$
+as $y = -20, 4, 6, 10, 30$ (making note that $x, y \neq 0$) which gives
+us the ordered pairs
+%
+\begin{equation*}
+    (x, y) \in \cbr{(4, -20), (-20, 4), (30, 6), (10, 10), (6, 30)}
+    .
+\end{equation*}
 
 \newpage
 
@@ -78,18 +202,126 @@ expansion as $503 / 126 = 4$ or, using the notation in the notes, $[4]$.
 (a) dimes and quarters;
 
 \textit{Solution.}
+Let $d$ be the number of dimes and $q$ the number of quarters. Then we
+have the equation $10 d + 25 q = 100$ where we constrain $d$ and $q$ to
+be positive integers. By inspection we can see that $\gcd(10, 25) = 5$
+and that $(d_0, q_0) = (10, 0)$ is a particular solution. Thus, all of
+our solutions are given by
+%
+\begin{align*}
+    d &= 10 + \frac{25}{5}n = 10 + 5k, \\
+    q &= 0 - \frac{10}{5}n = -2 k
+    ,
+\end{align*}
+%
+with $k \in \Z$. Given are integral constraints on $d$ and $q$ we can
+see that there are three ways we can solve this problem (corresponding
+to $k = -2, -1, 0$).
 
 \vspace{5mm}
 
 (b) nickels, dimes, and quarters;
 
 \textit{Solution.}
+Here again $d$ and $q$ will have the same meaning, and we will introduce
+the variable $n$ to be the number of nickels. Our equation for this part
+is $5n + 10d + 25q = 100$. If we let $w = n + 2 d$ then we can solve the
+equation $5w + 25q = 100$. By inspection we have that $\gcd(5, 25) = 5$
+and that $(w_0, q_0) = (0, 4)$ is a particular solution. Hence we have
+the solutions
+%
+\begin{align*}
+    w &= 5 k_1, \\
+    q &= 4 - k_1
+    ,
+\end{align*}
+%
+with $k_1 = 0, 1, 2, 3, 4,$. Now we can solve for $n + 2 d = 5 k_1$. We
+can see by inspection that $\gcd(1, 2) = 1$ and that
+$(n_0, d_0) = (5k_1, 0)$ is a particular solution, so solutions are
+%
+\begin{align*}
+    n &= 5 k_1  + 2 k_2, \\
+    d &= - k_2
+    ,
+\end{align*}
+%
+where $k_2 \in \Z$.
+
+For $k_1 = 0$ we have one solution corresponding to $k_2 = 0$.
+For $k_1 = 1$ we have three solutions corresponding to
+$k_2 = -2, -1, 0$. For $k_1 = 2$ we have six solutions corresponding to
+$k_2 = -5, \ldots, 0$. For $k_1 = 3$ we have eight solutions corresponding to
+$k_2 = -7, \ldots, 0$. For $k_1 = 4$ we have eleven solutions corresponding to
+$k_2 = -10, \ldots, 0$.
+
+Hence in total we have $1 + 3 + 6 + 8 + 11 = 29$ solutions.
 
 \vspace{5mm}
 
 (c) pennies, nickels, dimes, and quarters.
 
 \textit{Solution.}
+Here we will make the observation that pennies must come in groups of
+$5$ in the solution to this problem, and in this exact sense pennies
+(more accurately, groups of $5$ pennies) are equivalent to nickels. In
+part (b) the number of nickels in each solution was, in order,
+%
+\begin{equation*}
+    0, 1, 3, 5, 0, 2, 4, 6, 8, 10, 1, 3, 5, 7, 9, 11, 13, 15, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
+    .
+\end{equation*}
+%
+In each of these solutions, every nickel can be substituted for a group
+of $5$ pennies. So if we have $x$ elements corresponding to $\$0.05$, each
+element can be either a nickel or a penny. From combinatorics (this is
+the ``stars and bars'' problem), there are
+%
+\begin{equation*}
+    \binom{x + 2 - 1}{x} = x + 1
+\end{equation*}
+%
+ways of dividing $x$ elements of $\$0.05$ into groups of $5$ pennies and
+nickels. Hence the number of solutions to this problem is given by
+%
+\begin{align*}
+    &1
+    + 2
+    + 4
+    + 6
+    + 1
+    + 3
+    + 5
+    + 7
+    + 9
+    + 11
+    + 2
+    + 4
+    + 6
+    + 8
+    + 10
+    \\
+    &+ 12
+    + 14
+    + 16
+    + 1
+    + 3
+    + 5
+    + 7
+    + 9
+    + 11
+    + 13
+    + 15
+    + 17
+    + 19
+    + 21
+    = 242
+    .
+\end{align*}
+%
+Note that there may be a non-tedious way of solving this directly using
+number theory but this was not taught in lectures nor is it discussed in
+the textbook, so I prefer using the combinatorics result for this part.
 
 \newpage
 
