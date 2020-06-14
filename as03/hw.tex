@@ -1,0 +1,192 @@
+% Set up the document
+\documentclass{article}
+
+% Page size
+\usepackage[
+    letterpaper,]{geometry}
+
+% Lines between paragraphs
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{commath}
+
+% Number sets
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+% Links
+\usepackage{hyperref}
+
+% Page numbers at top right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand\headrulewidth{0pt}
+
+\begin{document}
+
+\textbf{MATH 342 assignment 3} \\
+\textbf{Matt Wiens \#301294492} \\
+\textbf{2020-06-15}
+
+1. Find an inverse modulo $19$ for each of the following integers.
+
+(a) 6
+
+\textit{Solution.}
+We want to find $x \in \Z$ such that $6 x \equiv 1 \mod 19$. Since
+$\gcd(6, 19) = 1$, there is exactly one solution (modulo $19$).
+By testing values for $x$ from $0$ to $18$, we find that
+$6 \cdot 16 \equiv 1 \mod 9$, so we can conclude that the inverse
+of $6$ modulo $19$ is $16$.
+
+\vspace{5mm}
+
+(b) 9
+
+\textit{Solution.}
+Again, we want to find an $x \in \Z$ such that $9 x \equiv 1 \mod 19$.
+Since $\gcd(9, 19) = 1$, we again have that there is one solution modulo
+$19$. Again testing for values of $x$ from $0$ to $18$ we find that $6
+\cdot 17 \equiv 1 \mod 9$. Thus the inverse of $9$ modulo $19$ is $17$.
+
+
+\newpage
+
+2. What is the last digit in the ordinary decimal representation of
+$3^{400}$?
+
+\textit{Solution.}
+First note that $\phi(10) = \#\cbr{1, 3, 7, 9} = 4$.
+
+We want to find $3^{400} \mod 10$. We can solve this by noting that,
+using Euler's Theorem,
+%
+\begin{equation*}
+    3^{400} \equiv 3^{4 (100)} \equiv 1 \mod 10
+    .
+\end{equation*}
+%
+Thus the last digit of $3^{400}$ is $1$.
+
+\newpage
+
+3. What are the last two digits in the ordinary decimal representation
+of $3^{400}$?
+
+\textit{Solution.}
+First we'll use Euler's product formula to determine $\phi(100)$.
+Since the prime divisors of $100$ are $2$ and $5$, we have that
+%
+\begin{equation*}
+    \phi(100) = 100 \del{1 - \frac{1}{2}} \del{1 - \frac{1}{5}} = 40
+\end{equation*}
+
+Using that, we want to find $3^{400} \mod 100$. We can solve this again
+using Euler's Theorem as follows:
+%
+\begin{equation*}
+    3^{400} \equiv 3^{40 (10)} 4 \equiv 1 \mod 100
+    .
+\end{equation*}
+%
+Thus the last two digits of $3^{400}$ are $01$.
+
+\newpage
+
+4. Find all the solutions of each of the following systems of linear
+congruences.
+
+(a) $x \equiv 1 \mod 2$, $x \equiv 2 \mod 3$
+
+\textit{Solution.}
+Using the notation in the Chinese Remainder Theorem, we have
+$a_1 = 1, a_2 = 2, m_1 = 2, m_2 = 3$ and hence
+$M_1 = m_2 = 3, M_2 = m_1 = 2$.
+
+Now we need to solve two modular inverses, the first of which
+is $3 y_1 \equiv 1 \mod 2$, which has solution $y_1 = 1$.
+The other inverse we need to solve is $2 y_2 \equiv 1 \mod 3$
+which has solution $y_2 = 2$.
+
+Hence the unique solution is given by
+%
+\begin{equation*}
+    x
+    \equiv a_1 M_1 y_1 + a_2 M_2 y_2
+    \equiv 1 \cdot 3 \cdot 1 + 2 \cdot 2 \cdot 2
+    \equiv 11
+    \equiv 5
+    \mod 6
+    .
+\end{equation*}
+
+\vspace{5mm}
+
+(b) $x \equiv 1 \mod 2$, $x \equiv 2 \mod 3$, $x \equiv 3 \mod 5$
+
+\textit{Solution.}
+Using the notation in the Chinese Remainder Theorem, we have
+$a_1 = 1, a_2 = 2, a_3 = 3, m_1 = 2, m_2 = 3, m_3 = 5$ and hence
+$M_1 = 15, M_2 = 5, M_3 = 6$.
+
+Now we need to solve three modular inverses, the first of which
+is $15 y_1 \equiv 1 \mod 2$, which has solution $y_1 = 1$.
+The second inverse we need to solve is $5 y_2 \equiv 1 \mod 3$ which has
+solution $y_2 = 2$. The final inverse is $6 y_3 \equiv 1 \mod 5$ which
+has solution $y_3 = 1$.
+
+Hence the unique solution is given by
+%
+\begin{equation*}
+    x
+    \equiv a_1 M_1 y_1 + a_2 M_2 y_2 + a_3 M_3 y_3
+    \equiv 1 \cdot 15 \cdot 1 + 2 \cdot 5 \cdot 2 + 3 \cdot 6 \cdot 1
+    \equiv 53
+    \equiv 23
+    \mod 30
+    .
+\end{equation*}
+
+\vspace{5mm}
+
+(c) $3x \equiv 4 \mod 8$
+
+\textit{Solution.}
+Because $\gcd\del{3, 8} = 1 | 4$, there is exactly one solution modulo $8$
+to this congruence. Testing all values of $x$ from $0$ to $7$ we have
+that $x \equiv 4 \mod 8$ is the unique solution.
+
+\newpage
+
+5. Find all solutions of $x^2 + x + 3 \equiv 0 \mod 144$
+
+\textit{Solution.}
+First we'll express
+%
+\begin{equation*}
+    x^2 + x + 3 \equiv \del{x + \frac{1}{2}}^2 + \frac{11}{4} \equiv 0 \mod 144
+    .
+\end{equation*}
+%
+Letting $y = x + 1/2$ we have
+%
+\begin{equation*}
+    y^2 \equiv - \frac{11}{4} \mod 144
+    .
+\end{equation*}
+%
+Since there is no rational solution for $y$ (while there is an
+irrational solution), it follows that $x$ is also irrational, and hence
+no solutions exist for the original congruence.
+
+\end{document}
