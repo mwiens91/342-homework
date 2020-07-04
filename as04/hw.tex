@@ -1,0 +1,83 @@
+% Set up the document
+\documentclass{article}
+
+% Page size
+\usepackage[
+    letterpaper,]{geometry}
+
+% Lines between paragraphs
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{commath}
+
+% Number sets
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+% Links
+\usepackage{hyperref}
+
+% Page numbers at top right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand\headrulewidth{0pt}
+
+\begin{document}
+
+\textbf{MATH 342 assignment 4} \\
+\textbf{Matt Wiens \#301294492} \\
+\textbf{2020-07-13}
+
+1. How many incongruent solutions are there to the congruence
+$x^5 + x - 6 \equiv 0 (\bmod 144)$?
+
+\textit{Solution.}
+
+\newpage
+
+2. Show that every composite Fermat number $F_m = 2^{2^m} + 1$ is a
+pseudoprime to the base $2$.
+
+\textit{Solution.}
+
+\newpage
+
+3. Explain why we should not choose primes $p$ and $q$ that are too close
+together to form the modulus $n$ in the $RSA$ cryptosystem. In particular,
+show that using a pair of twin primes for $p$ and $q = p + 2$ would be
+disastrous. (Use Fermat's factorization method.)
+
+\textit{Solution.}
+
+\newpage
+
+4. Use the Pollard $p - 1$ factorization method to find a non-trivial
+divisor of $6994241$.
+
+\textit{Solution.}
+
+\newpage
+
+5. Find the primes $p$ and $q$ if $n = p q = 14647$ and $\phi(n) = 14400$.
+
+\textit{Solution.}
+
+\newpage
+
+6. If the ciphertext message produced by RSA encryption with the key
+$(e, n) = (13, 2747)$ is $22060755043611651737$, what is the plaintext
+message?
+
+\textit{Solution.}
+
+\end{document}
