@@ -15,6 +15,9 @@
 \usepackage{amsthm}
 \usepackage{commath}
 
+% Operators
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
 % Number sets
 \newcommand{\C}{\mathcal{C}}
 \newcommand{\N}{\mathbb{N}}
@@ -39,9 +42,77 @@
 \textbf{2020-07-13}
 
 1. How many incongruent solutions are there to the congruence
-$x^5 + x - 6 \equiv 0 (\bmod 144)$?
+$x^5 + x - 6 \equiv 0 \Mod{144}$?
 
 \textit{Solution.}
+Our goal is to determine how many incongruent solutions exit to
+%
+\begin{equation}
+    x^5 + x - 6 \equiv 0 \Mod{144}
+    \label{eq:1-0}
+\end{equation}
+%
+Here we recognize that $144 = 2^4 3^2$. If we can find
+the number of solutions to both
+%
+\begin{align}
+    x^5 + x - 6 &\equiv 0 \Mod{2^4},
+    \label{eq:1-1}
+    \\
+    x^5 + x - 6 &\equiv 0 \Mod{3^2},
+    \label{eq:1-2}
+\end{align}
+%
+then, for each pair of solutions to~\eqref{eq:1-1} and~\eqref{eq:1-2},
+we can find a unique solution using the Chinese Remainder Theorem
+to~\eqref{eq:1-0}. Hence the number of solutions to~\eqref{eq:1-0} is
+given by multiplying the number of solutions to~\eqref{eq:1-1}
+and~\eqref{eq:1-2} together.
+
+We first solve~\eqref{eq:1-1} using Hansel's Lemma.
+Let $f(x) = x^5 + x - 6$; then $f^\prime(x) = 5 x^4 + 1$. The solutions
+to $f(x) \equiv 0 \Mod{2}$ are $x \equiv 0, x \equiv 1 \Mod{2}$.
+For the first solution, we have $f^\prime(0) \equiv 1 \Mod 2$.
+Thus, Hansel's Lemma guarantees this lifts up to a solution $\bmod \ 2^4$.
+For the second solution, we have $f^\prime(1) \equiv 6 \equiv 0 \Mod 2$
+and $f(1) \equiv -4 \equiv 0 \Mod{2^2}$. In this case, Hansel's Lemma
+tells us that $x \equiv 1, x \equiv 3 \Mod 4$ are solutions to
+$f(x) \equiv 0 \Mod{2^2}$.
+
+Since we know that $x \equiv 0 \Mod 2$ lifts uniquely to a solution
+modulo $2^4$, we will only focus on lifting the solutions
+$x \equiv 1, x \equiv 3 \Mod 4$
+of $f(x) \equiv 0 \Mod{2^2}$ to $f(x) \equiv 0 \Mod{2^3}$.
+For the first solution we have $f^\prime(1) \equiv 0 \Mod 2$
+and $f(1) \equiv -4 \equiv 6 \Mod{2^3}$. Hence we cannot lift the
+first solution up modulo $2^3$. For the second solution,
+we have $f^\prime(3) \equiv 406 \equiv 0 \Mod 2$
+and $f(3) \equiv 240 \equiv 0 \Mod{2^3}$. Thus we have that
+both $x \equiv 3, x \equiv 7 \Mod{2^3}$ are solutions to
+$f(x) \equiv 0 \Mod{2^3}$.
+
+We now focus on lifting these solutions up to solutions to
+$f(x) \equiv 0 \Mod{2^4}$. For the first solution,
+we again have $f^\prime(1) \equiv 0 \Mod 2$ and
+and $f(3) \equiv 240 \equiv 0 \Mod{2^4}$. Thus we have that
+both $x \equiv 3, x \equiv 11 \Mod{2^4}$ are solutions to
+$f(x) \equiv 0 \Mod{2^4}$. For the second solution
+we have have $f^\prime(7) \equiv 12006 \Mod 2$ and
+and $f(7) \equiv 16808 \equiv 8 \Mod{2^4}$. Hence we cannot
+lift the second solution up modulo $2^4$.
+
+To summarize what we have so far, we have found that~\eqref{eq:1-1} has
+$3$ solutions modulo $2^4$. We now focus on finding the number of solutions
+to~\eqref{eq:1-2}. By inspection, the only solution to $f(x) \equiv 0 \Mod 3$
+is $x \equiv 0 \Mod 3$. Since $f^\prime(3) \equiv 406 \equiv 1 \Mod 3$,
+Hansel's Lemma tells us we can lift up this solution to a unique solution
+modulo $3^2$.
+
+Therefore we have $3$ solutions to~\eqref{eq:1-1} and $1$ solution
+to~\eqref{eq:1-2}. Therefore there are $3$ incongruent solutions
+to~\eqref{eq:1-0}.
+
+
 
 \newpage
 
@@ -53,7 +124,7 @@ pseudoprime to the base $2$.
 \newpage
 
 3. Explain why we should not choose primes $p$ and $q$ that are too close
-together to form the modulus $n$ in the $RSA$ cryptosystem. In particular,
+together to form the modulus $n$ in the RSA cryptosystem. In particular,
 show that using a pair of twin primes for $p$ and $q = p + 2$ would be
 disastrous. (Use Fermat's factorization method.)
 
