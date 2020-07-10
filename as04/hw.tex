@@ -112,14 +112,26 @@ Therefore we have $3$ solutions to~\eqref{eq:1-1} and $1$ solution
 to~\eqref{eq:1-2}. Therefore there are $3$ incongruent solutions
 to~\eqref{eq:1-0}.
 
-
-
 \newpage
 
 2. Show that every composite Fermat number $F_m = 2^{2^m} + 1$ is a
 pseudoprime to the base $2$.
 
 \textit{Solution.}
+Here I will assume $m \in \Z^+$. Let $F_m= 2^{2^m} + 1$ such that $F_m$
+is composite. Trivially $F_m \equiv 2^{2^m} + 1 \equiv 0 \Mod{F_m}$,
+so $2^{2^m} \equiv -1 \Mod{F_m}$. Raising both sides of this congruence
+to $2^{2^m - m}$ we have
+%
+\begin{align*}
+    &(2^{2^m})^{2^{2^m - m}} \equiv (-1)^{2^{2^m - m}} \Mod{F_m} \\
+    &\iff 2^{2^m + 2^{2^m} - 2^m} \equiv 1 \Mod{F_m} \\
+    &\iff 2^{2^{2^m}} \equiv 1 \Mod{F_m} \\
+    &\iff 2^{F_m - 1} \equiv 1 \Mod{F_m}
+    .
+\end{align*}
+%
+This shows that $F_m$ is a pseudoprime base $2$.
 
 \newpage
 
