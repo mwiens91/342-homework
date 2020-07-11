@@ -17,6 +17,7 @@
 
 % Operators
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
 % Number sets
 \newcommand{\C}{\mathcal{C}}
@@ -141,6 +142,34 @@ show that using a pair of twin primes for $p$ and $q = p + 2$ would be
 disastrous. (Use Fermat's factorization method.)
 
 \textit{Solution.}
+If primes $p$ and $q$ are too close together then
+we can express $n = pq = p (p + \Delta)$
+where $\Delta$ is small by assumption. Then, given that
+%
+\begin{equation*}
+    t = \ceil{\sqrt{n}}
+    ,
+\end{equation*}
+%
+we can use Fermat's Factorization to find squares of the form
+%
+\begin{equation*}
+    t^2 - n, (t + 1)^2 - n, \ldots, (t + i)^2 - n, \ldots
+    .
+\end{equation*}
+%
+Once this is solved for some $i = m$, we have $(t + m)^2 - n = y^2$
+and equivalently $(t + m + y)(t + m - y) = n$. Recognizing that
+$p = t + m - y$ and $q = t + m + y$, we have $\Delta = 2 y$.
+Hence the solution can be written
+$(t + m - \Delta / 2)^2 - n = (\Delta / 2)^2$. Because $\Delta$ is small
+and $t$ is close to $n$, $m$ is also small, and hence the solution is
+reached quickly.
+
+For the specific case of twin primes, suppose $p$ and $p + 2$ are twin
+primes such that $n = p(p + 2)$. This case can be solved quickly because
+here $\Delta = 2$ and so we only need to solve $(t + m - 1)^2 - n = 1$
+for $m$, which is the quickest solution to solve given the above discussion.
 
 \newpage
 
@@ -148,12 +177,72 @@ disastrous. (Use Fermat's factorization method.)
 divisor of $6994241$.
 
 \textit{Solution.}
+Here we will use the factorization method with $a = 2$. Then
+%
+\begin{align*}
+    2^{2!} &\equiv 4 \Mod{6994241}, \\
+    2^{3!} &\equiv 4^3 \equiv 64 \Mod{6994241}, \\
+    2^{4!} &\equiv 64^4 \equiv 2788734 \Mod{6994241}, \\
+    2^{5!} &\equiv 2788734^5 \equiv 3834705 \Mod{6994241}, \\
+    2^{6!} &\equiv 3834705^6 \equiv 513770 \Mod{6994241}, \\
+    2^{7!} &\equiv 513770^7 \equiv 443653 \Mod{6994241}, \\
+    2^{8!} &\equiv 443653^8 \equiv 4355857 \Mod{6994241}, \\
+    2^{9!} &\equiv 4355857^9 \equiv 6234656 \Mod{6994241}, \\
+    2^{10!} &\equiv 6234656^{10} \equiv 6980798 \Mod{6994241}, \\
+    2^{11!} &\equiv 6980798^{11} \equiv 2816519 \Mod{6994241}, \\
+    2^{12!} &\equiv 2816519^{12} \equiv 5858224 \Mod{6994241}, \\
+    2^{13!} &\equiv 5858224^{13} \equiv 1 \Mod{6994241}
+    .
+\end{align*}
+%
+We then compute $\gcd(5858224^{14} - 1, 6994241) = 3361$, which is prime.
+Calculating $6994241 / 3361 = 2081$, we see that $6994241 = 3381 \cdot 2081$
+where both factors are prime.
 
 \newpage
 
 5. Find the primes $p$ and $q$ if $n = p q = 14647$ and $\phi(n) = 14400$.
 
 \textit{Solution.}
+Since the Euler phi function is multiplicative, we have
+%
+\begin{equation*}
+    \phi(n) = (p - 1) (q - 1) = p q - p - q + 1 = n - p - q + 1
+\end{equation*}
+%
+Then, solving for $p$, we have $p = n - q + 1 - \phi(n)$. Substituting
+this into $n = p q$ we have
+%
+\begin{equation*}
+    n = (n - q + 1 - \phi(n)) q
+    .
+\end{equation*}
+%
+Rearranging this into a polynomial in $q$, we have
+%
+\begin{equation*}
+    q^2 + (\phi(n) - n - 1) q + n = 0
+    .
+\end{equation*}
+%
+This has solutions
+%
+\begin{equation*}
+    q = - \frac{\phi(n) - n - 1}{2} \pm \frac{1}{2} \sqrt{(\phi(n) - n - 1)^2 - 4 n}
+    .
+\end{equation*}
+%
+For our specific values of $n$ and $\phi(n)$, we have
+%
+\begin{align*}
+    q &= - \frac{14400 - 14647 - 1}{2} \pm \frac{1}{2} \sqrt{(14400 - 14647 - 1)^2 - 4 \cdot 14647} \\
+      &= 124 \pm 27 \\
+      &= 151 \text{ or } 97
+    .
+\end{align*}
+%
+Both of these primes, and it turns out that $14647 = 151 \cdot 97$, so we can take
+$p = 151$, $q = 97$.
 
 \newpage
 
@@ -162,5 +251,37 @@ $(e, n) = (13, 2747)$ is $22060755043611651737$, what is the plaintext
 message?
 
 \textit{Solution.}
+Since $n$ is small, factorization is simple using a computer.
+Using Python to test all primes $p$ satisfying
+$2 \leq p \leq \sqrt{n} = 52.4$, we find that $41 \vert n$, and thus
+$n = 41 \cdot 67$. Now that we have $p$ and $q$, we only need to find
+$d$ to recover the private key. To start, $\phi(n) = 40 \cdot 66 = 2640$.
+Then we compute $d$ using $13 d \equiv 1 \Mod{2640}$.
+
+Using the Extended Euclidean Algorithm, we want to solve $13d - 2640 k = 1$:
+%
+\begin{align*}
+    -2640 &= 13 \cdot (-203) + 12 \\
+    13 &= 12 \cdot 1 + 1\\
+    12 &= 12 \cdot 1
+    ,
+\end{align*}
+%
+so $d \equiv 2437 \Mod{2640}$. Thus the private key is $(41, 67, 2437)$.
+
+Now we can decrypt the message. Here I will make the natural assumption
+that the chunk size is $4$. Then for each of the blocks we have
+%
+\begin{align*}
+    (2206)^{2437} &\equiv 617 \Mod{2747}, \\
+    (0755)^{2437} &\equiv 404 \Mod{2747}, \\
+    (0436)^{2437} &\equiv 1908 \Mod{2747}, \\
+    (1165)^{2437} &\equiv 1306 \Mod{2747}, \\
+    (1737)^{2437} &\equiv 1823 \Mod{2747}
+    .
+\end{align*}
+%
+Thus the plain text message is $0617 \ 0404 \ 1908 \ 1306 \ 1823$. Using
+the table in the notes, this corresponds to GREETINGSX.
 
 \end{document}
