@@ -1,0 +1,156 @@
+% Set up the document
+\documentclass{article}
+
+% Page size
+\usepackage[
+    letterpaper,]{geometry}
+
+% Lines between paragraphs
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{commath}
+
+% Operators
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\DeclareMathOperator{\ord}{ord}
+
+% Number sets
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+% Links
+\usepackage{hyperref}
+
+% Page numbers at top right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand\headrulewidth{0pt}
+
+\begin{document}
+
+\textbf{MATH 342 assignment 6} \\
+\textbf{Matt Wiens \#301294492} \\
+\textbf{2020-07-27}
+
+1. Find the incongruent roots modulo $11$ of
+
+(a) $x^2 + 2$
+
+\textit{Solution.}
+
+\vspace{5mm}
+
+(b) $x^4 + x^2 + 1$
+
+\textit{Solution.}
+
+\newpage
+
+2. Find a primitive root modulo $11^2$.
+
+\textit{Solution.}
+
+\newpage
+
+3. Show that if $a$ and $n$ are relatively prime integers with $n > 1$,
+then $n$ is prime if and only if $(x - a)^n$ and $x^n - a$ are congruent
+modulo $n$ as polynomials.
+
+\textit{Solution.}
+(See hint in homework sheet)
+
+\newpage
+
+4. Let $a$ and $n > 1$ be any integers such that $a^{n - 1} \equiv 1 \Mod{n}$
+but $a^d \not\equiv 1 \Mod{n}$ for every proper divisor $d$ of $n - 1$. Prove
+that $n$ is a prime.
+
+\textit{Solution.}
+
+\newpage
+
+5. Let $a$ be a primitive root of $p$ with $p \equiv 1 \Mod{4}$. Show
+that $-a$ is also a primitive root.
+
+\textit{Solution.}
+
+\newpage
+
+6. Show that there are the same number of primitive roots modulo $2p^a$
+as there are modulo $p^a$, where $p$ is an odd prime and $a$ is a
+positive integer.
+
+\textit{Solution.}
+
+\newpage
+
+7. Show that the integer $n$ has a primitive root if and only if the
+only solutions of the congruence $x^2 \equiv 1 \Mod{n}$ are
+$x \equiv \pm 1 \Mod{n}$.
+
+\textit{Solution.}
+
+\newpage
+
+8. Let $p$ be a prime. If for integers $k$ and $l$ we have
+$x^k \equiv x^l \Mod{p}$ for all $x \in \Z$ with $(x, p) = 1$,
+show that $k \equiv l \Mod{p - 1}$.
+
+\textit{Solution.}
+
+\newpage
+
+9. Show that if $n$ is a positive integer, and $a$ and $b$ are integers
+relatively prime to $n$ such that $(\ord_n a, \ord_n b) = 1$, then
+$\ord_n ab = \ord_n a \cdot \ord_n b$.
+
+\textit{Solution.}
+
+\newpage
+
+10. Show that if $n$ is a positive integer, and $a$ is relatively prime
+to $n$, then $\ord_n \bar{a} = \ord_n a$, where $\bar{a}$ is the inverse
+of $a$ modulo $n$.
+
+\textit{Solution.}
+
+\newpage
+
+11. (a) Let $k$ and $a$ be positive integers, with $a \geq 2$. Show
+that $k \mid \phi(a^k - 1)$.
+
+\textit{Solution.}
+
+\vspace{5mm}
+
+(b) Let $p$ be a prime number. Show that if $p \mid \phi(m)$ and
+$p \nmid m$, then there is at least one prime factor $q$ of $m$
+such that $q \equiv 1 \Mod{p}$.
+
+\textit{Solution.}
+
+\vspace{5mm}
+
+(c) Let $p$ be a given prime number. Prove that there exists infinitely
+many prime numbers $q \equiv 1 \Mod{p}$.
+
+\textit{Solution.}
+
+\newpage
+
+12. For which positive integers $a$ is the congruence
+$a x^4 \equiv 2 \Mod{13}$ solvable?
+
+\textit{Solution.}
+
+\end{document}
