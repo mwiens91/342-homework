@@ -47,18 +47,53 @@
 (a) $x^2 + 2$
 
 \textit{Solution.}
+I'm not sure what the intended strategy is here, but the modulus $11$ is
+small enough that we can test all $x = 0, \ldots, 10$ to see that
+both $x \equiv 3 \Mod{11}$ and $x \equiv 8 \Mod{11}$ satisfy
+$x^2 + 2 \equiv 0 \Mod{11}$.
 
 \vspace{5mm}
 
 (b) $x^4 + x^2 + 1$
 
 \textit{Solution.}
+Again we can use brute force since the modulus $11$ is small and test
+all $x = 0, \ldots, 10$, which this time tells us that
+$x^4 + x^2 + 1 \equiv 0 \Mod{11}$ has no solutions.
 
 \newpage
 
 2. Find a primitive root modulo $11^2$.
 
 \textit{Solution.}
+We first find a primitive root modulo $11$, meaning we want to find an $a$
+such that $\ord_{11} a = \phi(11) = 10$. Testing $a = 2$ we have
+%
+\begin{align*}
+    2^2 &\equiv 4 \Mod{11}, \\
+    2^5 &\equiv 32 \equiv 10 \Mod{11}, \\
+    2^{10} &\equiv 1024 \equiv 1 \Mod{11}
+    .
+\end{align*}
+%
+Hence we see that $\ord_{11} 2 = \phi(11)$, and so we have found a
+primitive root modulo $11$. To find a primitive root modulo $11^2$,
+we first note that $\phi(11^2) = 11 \cdot 10 = 110$. We now test
+both $a = 2, 14$ for being primitive roots modulo $11^2$. For
+$a = 2$ we have
+%
+\begin{align*}
+    2^{10} &\equiv 1024 \equiv 56 \not\equiv \Mod{11^2}
+    , \\
+    2^{110} &\equiv 1298074214633706907132624082305024 \equiv 1 \Mod{11^2}
+    .
+\end{align*}
+%
+Hence by the theorem in class, we have found that
+$\ord_{11^2} 2 = \phi(11^2) = 110$, and so $2$ is a primitive root modulo
+$11^2$ (there is no need to check $a = 14$ since we have already found a
+root).
+
 
 \newpage
 
@@ -67,7 +102,24 @@ then $n$ is prime if and only if $(x - a)^n$ and $x^n - a$ are congruent
 modulo $n$ as polynomials.
 
 \textit{Solution.}
-(See hint in homework sheet)
+We want to show that $n$ is prime if and only if
+%
+\begin{align*}
+    (x - a)^n
+        &\equiv \sum_{k = 0}^n \binom{n}{k} x^{n - k} (-a)^k \\
+        &\equiv x^n - a + \sum_{k = 1}^{n - 1} \binom{n}{k} x^{n - k} (-a)^k \\
+        &\equiv x^n - a
+        \Mod{n}
+        .
+\end{align*}
+%
+Stated another way, we need to show that $n$ is prime if and only if
+$\sum_{k = 1}^{n - 1} \binom{n}{k} x^{n - k} (-a)^k \equiv 0 \Mod{n}$.
+Since when $n$ is prime $n \mid \binom{n}{k}$, we have
+$\sum_{k = 1}^{n - 1} \binom{n}{k} x^{n - k} (-a)^k \equiv 0 \Mod{n}$;
+if $n$ is not prime, then $n \nmid \binom{n}{k}$ (and also $n \nmid a$),
+so, as a polynomial, we have
+$\sum_{k = 1}^{n - 1} \binom{n}{k} x^{n - k} (-a)^k \not\equiv 0 \Mod{n}$.
 
 \newpage
 
@@ -76,6 +128,11 @@ but $a^d \not\equiv 1 \Mod{n}$ for every proper divisor $d$ of $n - 1$. Prove
 that $n$ is a prime.
 
 \textit{Solution.}
+Suppose that $n$ is composite. We know that $a^{\phi(n)} \equiv 1 \Mod n$.
+Since $\ord_{n} a \leq \phi(n) < n - 1$, we have that $\ord_{n} a < n - 1$
+and $\ord_{n} a \mid n - 1$. However, this contradicts our assumption
+that $a^d \not\equiv 1 \Mod{n}$ for every proper divisor $d \mid n - 1$.
+Hence $n$ cannot be composite, and must be prime.
 
 \newpage
 
@@ -83,6 +140,20 @@ that $n$ is a prime.
 that $-a$ is also a primitive root.
 
 \textit{Solution.}
+Let $k$ be such that $p = 1 + 4k$. Since $p$ is prime, we have
+$\phi(p) = 4k$, and so we have $\ord_{p} a = 4k$. Hence
+$a^{4k} \equiv 1 \Mod{p}$. Since $\ord_{p} a = 4k$, and expressing
+$a^{4k} = (a^{2k})^2$,  we must have that $a^{2k} \equiv - 1 \Mod{p}$,
+which, because $2k$ is an even power, we are free to write as
+$(-a)^{2k} \equiv - 1 \Mod{p}$. Multiplying through by $- a$, we have
+$(-a)^{2k + 1} \equiv a \Mod{p}$.
+
+Using a slightly modified version of a theorem from lectures, we have
+that $a$ is a primitive root of $p$ if and only if
+$a^1, a^2, \ldots, a^{p - 1}$ form a reduced residue set modulo $n$.
+Since $a \equiv (-a)^{2k + 1} \Mod{p}$, we also have that
+$(-a), (-a)^2, \ldots, (-a)^{p - 1}$ form a reduced residue set modulo
+$n$, and hence $-a$ is also a primitive root of $p$.
 
 \newpage
 
@@ -91,6 +162,23 @@ as there are modulo $p^a$, where $p$ is an odd prime and $a$ is a
 positive integer.
 
 \textit{Solution.}
+This is trivial to show. Since
+%
+\begin{equation*}
+    \phi(2 p^a) = \phi(2) \phi(p^a) = \phi(p^a)
+    ,
+\end{equation*}
+%
+Then we have that, using $F(d)$ as in lectures to denote the number of
+integers less than $p$ that have order $d$ modulo $p$,
+%
+\begin{equation*}
+    F(\phi(2 p^a)) = F(\phi(p^a))
+    .
+\end{equation*}
+%
+Hence there are the same number of primitive roots modulo $2p^a$
+as there are modulo $p^a$, provided that $p$ is an odd prime.
 
 \newpage
 
@@ -99,6 +187,44 @@ only solutions of the congruence $x^2 \equiv 1 \Mod{n}$ are
 $x \equiv \pm 1 \Mod{n}$.
 
 \textit{Solution.}
+Fix $n$ and suppose the only solutions of $x^2 \equiv 1 \Mod{n}$ are
+$x \equiv \pm 1 \Mod{n}$. Suppose for contradiction that $n$
+has no primitive root. Then for any prime $p$, we know that
+$n \neq 2, 4, p^a, 2p^a$. Hence either $n = 2^a$ for some $a \geq 3$, or
+$n = c d$, where $c$ and $d$ can be made coprime. If $n = 2^a$, consider
+that $x_0 \equiv 2^{a - 1} - 1 \not\equiv \pm 1 \Mod{2^a}$, but
+%
+\begin{equation*}
+    x_0^2
+    \equiv (2^{a -1} - 1)^2
+    \equiv 2^{a - 1} \cdot 2^{a - 1} - 2 \cdot 2^{a - 1} + 1
+    \equiv 1
+    \Mod{2^a}
+    .
+\end{equation*}
+%
+Hence we have found a solution $x_0 \neq \pm 1 \Mod{n}$ that satisfies
+$x^2 \equiv 1 \Mod{n}$, which is a contradiction. Hence $n \neq 2^a$,
+so instead we must have that $n = c d$ with $c, d$ coprime. Since
+$x \equiv 1 \Mod{c}$ and $x \equiv 1 \Mod{d}$ each have at least two solutions,
+by the Chinese remainder theorem $x \equiv 1 \Mod{c d}$ has at least four solutions.
+This again results in a contradiction and hence we cannot have $n = c d$ with
+$c$ and $d$ coprime. Thus $n$ must have a primitive root.
+
+Suppose $n$ has a primitive root, say, $a$. Then $a^1, a^2, \ldots, a^{\phi(n)}$
+form a reduced residue set modulo $n$. Hence solutions must have the form
+$x_0 \equiv a^{k_1}$ for some $k_1$ to $x^2 \equiv 1 \Mod{n}$; that is, for some $k_1$
+we have $a^{2k_1} \equiv 1 \Mod{n}$. Since $n$ has a primitive root, $\ord_n a = \phi(n)$
+and therefore going back to the previous equation we have $\phi(n) \mid 2 k_1$.
+Thus for some $k_2$ we have $2 k_1 = k_2 \phi(n)$, and therefore we have,
+using that by a theorem in lectures, $a^{\phi(n)/2} = -1$,
+%
+\begin{equation*}
+    x_0 \equiv a^{k_1} \equiv a^{k_2 \phi(n) / 2} \equiv (-1)^{k_2} \equiv \pm 1 \Mod{n}
+    .
+\end{equation*}
+%
+Hence the only solutions to the congruence $x^2 \equiv 1 \Mod{n}$ are $x \equiv \pm 1 \Mod{n}$.
 
 \newpage
 
@@ -107,6 +233,14 @@ $x^k \equiv x^l \Mod{p}$ for all $x \in \Z$ with $(x, p) = 1$,
 show that $k \equiv l \Mod{p - 1}$.
 
 \textit{Solution.}
+From lectures we have that if $a$ and $n$ are relatively prime integers
+with $n > 0$, then $a^i \equiv a^j \Mod{n}$ is equivalent to
+$i \equiv j \Mod{\ord_n a}$. Here, because we have $x^k \equiv x^l \Mod{p}$,
+with $x$ and $p$ relatively prime integers, we have that
+$k \equiv l \Mod{\ord_p x}$. Hence we need to show that $\ord_p x = \phi(p) = p - 1$,
+or equivalently, that $x$ is a primitive root modulo $p$. However
+this is true because the correspondence between $k$ and $l$ guarantees
+that $x^1, x^2, \ldots, x^{p - 1}$ form a reduced residue set modulo $p$.
 
 \newpage
 
