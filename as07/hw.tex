@@ -200,6 +200,46 @@ Hence, there must be infinitely many prime numbers of the form $q \equiv 1 \Mod{
 $a x^4 \equiv 2 \Mod{13}$ solvable?
 
 \textit{Solution.}
+Note that $a x^4 \equiv 2 \Mod{13}$ is equivalent to
+$x^4 \equiv \bar{a} 2 \Mod{13}$. Using the notation used in lectures,
+let $m = 13$ and $k = 4$.
+Then we have that $\phi(m) = 12$ and that $d \coloneqq (k, \phi(m)) =  4$.
+Using the theorem from lectures and that
+$a x^4 \equiv 2 \Mod{13}$ is equivalent to
+$x^4 \equiv \bar{a} 2 \Mod{13}$, we have that $a$ permits a solution to
+$a x^4 \equiv 2 \Mod{13}$ provided that
+%
+\begin{equation*}
+    (\bar{a} 2)^{\phi(m) / d} \equiv (\bar{a} 2)^3 \equiv 8 \bar{a}^3 \equiv 1 \Mod{13}
+    .
+\end{equation*}
+%
+The inverses modulo $13$ of $a = 1, \ldots, 12$ are shown in the table below
+as well as the value $8 \bar{a}^3$ modulo $13$.
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{| c | c | c |}
+ \hline
+ $a$ & $\bar{a}$ & $\bmod(8 \bar{a}^3, 13)$ \\
+ \hline
+ 1 & 1 & 8 \\
+ 2 & 7 & 1 \\
+ 3 & 9 & 8 \\
+ 4 & 10 & 5 \\
+ 5 & 8 & 1 \\
+ 6 & 11 & 1 \\
+ 7 & 2 & 12 \\
+ 8 & 5 & 12 \\
+ 9 & 3 & 8\\
+ 10 & 4 & 5 \\
+ 12 & 12 & 5 \\
+ \hline
+\end{tabular}
+\end{table}
+
+Hence we have that all positive integers $a$ congruent modulo $13$ to $5$ or $6$
+permit a solution to $a x^4 \equiv 2 \Mod{13}$.
 
 \end{document}
 
