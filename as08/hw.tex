@@ -1,0 +1,112 @@
+% Set up the document
+\documentclass{article}
+
+% Page size
+\usepackage[
+    letterpaper,]{geometry}
+
+% Lines between paragraphs
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{commath}
+
+% Operators
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\Leg}[2]{\del{\frac{#1}{#2}}}
+\DeclareMathOperator{\ord}{ord}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% Number sets
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+% Links
+\usepackage{hyperref}
+
+% Page numbers at top right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand\headrulewidth{0pt}
+
+\begin{document}
+
+\textbf{MATH 342 assignment 8} \\
+\textbf{Matt Wiens \#301294492} \\
+\textbf{2020-08-12}
+
+1. Evaluate the Legendre symbol $\Leg{13}{23}$ using
+
+(a) Euler's criterion
+
+\textit{Solution.}
+
+\vspace{5mm}
+
+(b) Gauss's lemma
+
+\textit{Solution.}
+
+\newpage
+
+2. Using the Quadratic Reciprocity Law, show that
+%
+\begin{equation*}
+    \Leg{3}{p}
+    = (-1)^{\floor*{\frac{p + 1}{6}}}
+    =
+    \begin{cases}
+        1, & p \equiv 1, 11 \Mod{12}, \\
+        -1, & p \equiv 5, 7 \Mod{12}.
+    \end{cases}
+\end{equation*}
+
+\textit{Solution.}
+
+\newpage
+
+4. For any prime $p$ of the form $4 k + 3$, prove that
+$x^2 + \frac{p + 1}{4} \equiv 0 \Mod{p}$ has no solution.
+
+\textit{Solution.}
+
+\newpage
+
+9. For which primes are there solutions $x^2 + y^2 \equiv 0 \Mod{p}$
+with $(x, p) = (y, p) = 1$?
+
+\textit{Solution.}
+
+\newpage
+
+10. For which prime powers are there solutions $x^2 + y^2 \equiv 0 \Mod{p^\alpha}$
+with $(x, p) = (y, p) = 1$?
+
+\textit{Solution.}
+
+\newpage
+
+11. Evaluate each of the following Jacobi or Legendre symbols:
+
+(a) $\Leg{111}{1001}$
+
+\textit{Solution.}
+
+\vspace{5mm}
+
+(d) $\Leg{105}{1009}$
+
+\textit{Solution.}
+
+\end{document}
+
