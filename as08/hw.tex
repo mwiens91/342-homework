@@ -50,12 +50,56 @@
 (a) Euler's criterion
 
 \textit{Solution.}
+Using Euler's criteron we have that
+%
+\begin{equation*}
+    \Leg{13}{23}
+    \equiv 13^{(23 - 1) / 2}
+    \equiv 13^{11}
+    \equiv 1
+    \Mod{23}
+    ,
+\end{equation*}
+%
+and hence
+%
+\begin{equation*}
+    \Leg{13}{23}
+    = 1
+    .
+\end{equation*}
 
 \vspace{5mm}
 
 (b) Gauss's lemma
 
 \textit{Solution.}
+Now we will compute the same result using Gauss's lemma.
+Since
+%
+\begin{align*}
+    1 \cdot 13 &\equiv 13 \Mod{23}, \\
+    2 \cdot 13 &\equiv 3 \Mod{23}, \\
+    3 \cdot 13 &\equiv 16 \Mod{23}, \\
+    4 \cdot 13 &\equiv 6 \Mod{23}, \\
+    5 \cdot 13 &\equiv 19 \Mod{23}, \\
+    6 \cdot 13 &\equiv 9 \Mod{23}, \\
+    7 \cdot 13 &\equiv 22 \Mod{23}, \\
+    8 \cdot 13 &\equiv 12 \Mod{23}, \\
+    9 \cdot 13 &\equiv 2 \Mod{23}, \\
+    10 \cdot 13 &\equiv 15 \Mod{23}, \\
+    11 \cdot 13 &\equiv 5 \Mod{23},
+\end{align*}
+%
+we have that, using the notation of Gauss's lemma, $s = 6$,
+and hence
+%
+\begin{equation*}
+    \Leg{13}{23}
+    = (-1)^{6}
+    = 1
+    .
+\end{equation*}
 
 \newpage
 
@@ -72,6 +116,122 @@
 \end{equation*}
 
 \textit{Solution.}
+In order for this Legendre symbol to make sense, we need $p$ to be an odd prime
+and for $p \nmid 3$ (so $p \neq 3$). Hence, modulo $12$, we have
+$p$ an odd prime with either $p \equiv 1, 5, 7, 11 \Mod{12}$.
+For $p \equiv 1 \Mod{12}$, then we have
+%
+\begin{align*}
+    \Leg{3}{p}
+    &= (-1)^{\frac{p - 1}{2} \cdot \frac{3 - 1}{2}} \Leg{p}{3} \\
+    &= (-1)^{\frac{(12 k + 1) - 1}{2} \cdot 1} \Leg{p}{3} \\
+    &= (-1)^{6 k} \Leg{p}{3} \\
+    &= \Leg{p}{3} \\
+    &= \Leg{1}{3} \\
+    &= 1
+    .
+\end{align*}
+%
+and hence for $p \equiv 1 \Mod{12}$, we have
+%
+\begin{equation*}
+    \Leg{3}{p}
+    = 1
+    = (-1)^{2 k}
+    = (-1)^{\floor*{\frac{12 k + 2}{6}}}
+    = (-1)^{\floor*{\frac{(12 k + 1) + 1}{6}}}
+    = (-1)^{\floor*{\frac{p + 1}{6}}}
+    .
+\end{equation*}
+%
+Now consider when $p \equiv 11 \Mod{12}$. Then
+%
+\begin{align*}
+    \Leg{3}{p}
+    &= (-1)^{\frac{p - 1}{2} \cdot \frac{3 - 1}{2}} \Leg{p}{3} \\
+    &= (-1)^{\frac{(12 k + 11) - 1}{2} \cdot 1} \Leg{p}{3} \\
+    &= (-1)^{6 k + 5} \Leg{p}{3} \\
+    &= - \Leg{p}{3} \\
+    &= - \Leg{2}{3} \\
+    &= - (-1) \\
+    &= 1
+    .
+\end{align*}
+%
+Hence for $p \equiv 11 \Mod{12}$ we have
+%
+\begin{equation*}
+    \Leg{3}{p}
+    = 1
+    = (-1)^{2 k + 2}
+    = (-1)^{\floor*{\frac{12 k + 12}{6}}}
+    = (-1)^{\floor*{\frac{(12 k + 11) + 1}{6}}}
+    = (-1)^{\floor*{\frac{p + 1}{6}}}
+    .
+\end{equation*}
+%
+Now, consider when $p \equiv 5 \Mod{12}$. Then we have
+%
+\begin{align*}
+    \Leg{3}{p}
+    &= (-1)^{\frac{p - 1}{2} \cdot \frac{3 - 1}{2}} \Leg{p}{3} \\
+    &= (-1)^{\frac{(12 k + 5) - 1}{2} \cdot 1} \Leg{p}{3} \\
+    &= (-1)^{6 k + 4} \Leg{p}{3} \\
+    &= \Leg{p}{3} \\
+    &= \Leg{2}{3} \\
+    &= -1
+    .
+\end{align*}
+%
+Hence for $p \equiv 5 \Mod{12}$ we have
+%
+\begin{equation*}
+    \Leg{3}{p}
+    = - 1
+    = (-1)^{2 k + 1}
+    = (-1)^{\floor*{\frac{12 k + 6}{6}}}
+    = (-1)^{\floor*{\frac{(12 k + 5) + 1}{6}}}
+    = (-1)^{\floor*{\frac{p + 1}{6}}}
+    .
+\end{equation*}
+%
+Finally, for $p \equiv 7 \Mod{12}$, we have
+%
+\begin{align*}
+    \Leg{3}{p}
+    &= (-1)^{\frac{p - 1}{2} \cdot \frac{3 - 1}{2}} \Leg{p}{3} \\
+    &= (-1)^{\frac{(12 k + 7) - 1}{2} \cdot 1} \Leg{p}{3} \\
+    &= (-1)^{6 k + 3} \Leg{p}{3} \\
+    &= - \Leg{p}{3} \\
+    &= - \Leg{1}{3} \\
+    &= -1
+    .
+\end{align*}
+%
+Hence for $p \equiv 7 \Mod{12}$ we have
+%
+\begin{equation*}
+    \Leg{3}{p}
+    = - 1
+    = (-1)^{2 k + 1}
+    = (-1)^{\floor*{\frac{12 k + 8}{6}}}
+    = (-1)^{\floor*{\frac{(12 k + 7) + 1}{6}}}
+    = (-1)^{\floor*{\frac{p + 1}{6}}}
+    .
+\end{equation*}
+%
+To summarize, we have shown that
+%
+\begin{equation*}
+    \Leg{3}{p}
+    = (-1)^{\floor*{\frac{p + 1}{6}}}
+    =
+    \begin{cases}
+        1, & p \equiv 1, 11 \Mod{12}, \\
+        -1, & p \equiv 5, 7 \Mod{12}.
+    \end{cases}
+\end{equation*}
+
 
 \newpage
 
@@ -79,6 +239,24 @@
 $x^2 + \frac{p + 1}{4} \equiv 0 \Mod{p}$ has no solution.
 
 \textit{Solution.}
+Suppose $p = 4 k + 3$, then $(p + 3) / 4 = k + 1$. Suppose
+for contradiction that there exists $x_0$ that solves
+$x^2 = - (p + 1) / 4 = - k - 1 \Mod{p}$. Then we have
+%
+\begin{align*}
+    x_0^{p - 1}
+    &\equiv x_0^{(4k + 3) - 1} \\
+    &\equiv x_0^{4k + 2} \\
+    &\equiv x_0^2 ((x_0^2)^2)^k \\
+    &\equiv (-k - 1) (k^2 + 2k + 1)^k
+    \Mod{p}
+\end{align*}
+%
+For no $k$ do we have $(-k - 1) (k^2 + 2k + 1)^k \equiv 1 \Mod{p}$
+(this is because the first term is always negative, and the second
+term is always positive), so the above contradicts Fermat's Little Theorem.
+
+Hence no solution $x_0$ can exist to $x^2 + \frac{p + 1}{4} \equiv 0 \Mod{p}$.
 
 \newpage
 
@@ -86,6 +264,50 @@ $x^2 + \frac{p + 1}{4} \equiv 0 \Mod{p}$ has no solution.
 with $(x, p) = (y, p) = 1$?
 
 \textit{Solution.}
+Suppose such a solution exists for some odd prime $p$. Since we have that
+$p \nmid y$, there exists an inverse of $y$ modulo $p$. Denote this
+inverse by $z$. Hence we have that
+%
+\begin{align*}
+    &x^2 + y^2 \equiv 0 \Mod{p} \\
+    &\iff x^2 \equiv - y^2 \Mod{p} \\
+    &\iff x^2 z^2 \equiv - 1 \Mod{p}, \\
+    &\iff (xz)^2 \equiv - 1 \Mod{p}.
+\end{align*}
+%
+Note that since $(y, p) = 1$, we must have $(z, p) = 1$ and thus
+$p \nmid xz$. Hence we can apply Fermat's Little Theorem to get
+%
+\begin{align*}
+    &(x z)^{p - 1} \equiv 1 \Mod{p} \\
+    &\iff ((x z)^2)^{(p - 1) / 2} \equiv 1 \Mod{p} \\
+    &\iff (-1)^{(p - 1) / 2} \equiv 1 \Mod{p}.
+\end{align*}
+%
+Hence we must have that
+%
+\begin{align*}
+    &(p - 1) / 2 \equiv 0 \Mod{2} \\
+    &\implies p - 1 \equiv 0 \Mod{4} \\
+    &\implies p \equiv 1 \Mod{4}.
+\end{align*}
+%
+Hence only for odd primes which are congruent to $1$ modulo $4$,
+can $x^2 + y^2 \equiv 0 \Mod{p}$ have a solution.
+
+Now we will show that there does exist such a solution for every
+$p \equiv 1 \Mod{4}$. Since $p$ is congruent to $1$ modulo $4$,
+from lecture we know that $-1$ is a quadratic residue modulo $p$.
+Hence there exists $x_0$ such that $x_0^2 \equiv - 1 \Mod{p}$;
+but this is equivalent to $x_0^2 + 1^2 \equiv 0 \Mod{p}$,
+which is a solution since $(x_0, p) = (1, p) = 1$.
+
+Hence we have shown that for odd primes $p$, there are solutions to
+$x^2 + y^2 \equiv 0 \Mod{p}$ (with $x$ and $y$ relatively prime to $p$)
+if and only if $p \equiv 1 \Mod{4}$.
+
+Note that for $p = 2$, there is clearly a solution since $1^2 + 1^2 = 0 \Mod{2}$
+with $(1, 2) = 1$.
 
 \newpage
 
@@ -93,6 +315,33 @@ with $(x, p) = (y, p) = 1$?
 with $(x, p) = (y, p) = 1$?
 
 \textit{Solution.}
+Using question 9, we know that for $\alpha = 1$, there are solutions for $p = 2$
+or $p \equiv 1 \Mod{4}$.
+
+If $x^2 + y^2 = 0 \Mod{p}$,
+we have $(x^2 + y^2)(x^2 + y^2) \equiv (x^2 - y^2)^2 + (2xy)^2 \equiv 0 \Mod{p^2}$.
+Hence in a sense we can ``lift'' our solution from $p^1$ to $p^2$. Suppose
+$x_k$ and $y_k$ solves $x_k^2 + y_k^2 \equiv 0 \Mod{p^k}$. Then
+%
+\begin{align*}
+    x_{k + 1} &\coloneqq x_k x - y_k y, \\
+    y_{k + 1} &\coloneqq x_k y + y_k x
+\end{align*}
+%
+solves $x_{k + 1}^2 + y_{k + 1}^2 \equiv 0 \Mod{p^{k + 1}}$, since
+%
+\begin{equation*}
+    (x_k^2 + y_k^2) (x^2 + y^2) \equiv (x_kx - y_k y)^2 + (x_k y + y_k x)^2 \equiv 0 \Mod{p^{k + 1}}
+    .
+\end{equation*}
+%
+Hence, because for odd primes $p \equiv 1 \Mod{4}$ we have that for $x$ and $y$ solving
+$x^2 + y^2 \equiv 0 \Mod{p}$ we can choose $x \neq y$, we can lift solutions up
+non-trivially to any $p^\alpha$. This does not work for $p = 2$ however,
+since the solutions $x = y = 1$, which would yield a trivial solution if we tried
+to lift it.
+
+I am unsure if for $p \equiv 3 \Mod{4}$ there are solutions for $\alpha > 1$.
 
 \newpage
 
@@ -101,12 +350,104 @@ with $(x, p) = (y, p) = 1$?
 (a) $\Leg{111}{1001}$
 
 \textit{Solution.}
+Here we have $111 = 3 \cdot 37$ and $1001 = 7 \cdot 11 \cdot 13$.
+Hence $111$ and $1001$ are relatively prime and we can use that
+%
+\begin{align*}
+    \Leg{111}{1001}
+    &= (-1)^{\frac{111 - 1}{2} \cdot \frac{1001 - 1}{2}} \Leg{1001}{111} \\
+    &= (-1)^{55 \cdot 500} \Leg{1001}{111} \\
+    &= \Leg{1001}{111} \\
+    &= \Leg{2}{111}
+    .
+\end{align*}
+%
+Now we will use the definition of the Jacobi symbol to write
+%
+\begin{equation*}
+    \Leg{111}{1001} = \Leg{2}{111} = \Leg{2}{3} \Leg{3}{37}
+    .
+\end{equation*}
+%
+Using Euler's Criterion, we have
+%
+\begin{equation*}
+    \Leg{2}{3} \equiv 2^{\frac{3 - 1}{2}} \equiv 2^1 \equiv -1 \Mod{3}
+    ,
+\end{equation*}
+%
+and thus $\Leg{2}{3} = -1$. For $\Leg{3}{37}$, we first simplify using
+quadratic reciprocity:
+%
+\begin{align*}
+    \Leg{3}{37}
+    &= (-1)^{\frac{3 - 1}{2} \cdot \frac{37 - 1}{2}} \Leg{37}{3} \\
+    &= (-1)^{1 \cdot 18} \Leg{37}{3} \\
+    &= \Leg{37}{3} \\
+    &= \Leg{1}{3}
+    .
+\end{align*}
+%
+Hence $\Leg{3}{37} = \Leg{1}{3} = 1$. Thus we have that
+%
+\begin{equation*}
+    \Leg{111}{1001} = \Leg{2}{3} \Leg{3}{37} = (-1) \cdot 1 = -1
+    .
+\end{equation*}
 
 \vspace{5mm}
 
 (d) $\Leg{105}{1009}$
 
 \textit{Solution.}
+Note that $105 = 3 \cdot 5 \cdot 7$ and that $1009$ is prime.
+Hence we can use that
+%
+\begin{equation*}
+    \Leg{105}{1009} = \Leg{3}{1009} \Leg{5}{1009} \Leg{7}{1009}
+    .
+\end{equation*}
+%
+Evaluating each of terms on the right hand side of the above equation separately,
+we have
+%
+\begin{align*}
+    \Leg{3}{1009}
+    &= (-1)^{\frac{1009 - 1}{2} \cdot \frac{3 - 1}{2}} \Leg{1009}{3} \\
+    &= (-1)^{504 \cdot 1} \Leg{1009}{3} \\
+    &= \Leg{1009}{3} \\
+    &= \Leg{1}{3}, \\
+    %
+    \Leg{5}{1009}
+    &= (-1)^{\frac{1009 - 1}{2} \cdot \frac{5 - 1}{2}} \Leg{1009}{5} \\
+    &= (-1)^{504 \cdot 2} \Leg{1009}{5} \\
+    &= \Leg{1009}{5} \\
+    &= \Leg{4}{5}, \\
+    %
+    \Leg{7}{1009}
+    &= (-1)^{\frac{1009 - 1}{2} \cdot \frac{7 - 1}{2}} \Leg{1009}{7} \\
+    &= (-1)^{504 \cdot 3} \Leg{1009}{7} \\
+    &= \Leg{1009}{7} \\
+    &= \Leg{1}{7}.
+\end{align*}
+%
+Clearly we have $\Leg{3}{1009} = \Leg{1}{3} = 1$ and $\Leg{7}{1009} = \Leg{1}{7} = 1$.
+To determine the remaining term, we use Euler's Criterion:
+%
+\begin{equation*}
+    \Leg{5}{1009} = \Leg{4}{5} \equiv 4^{\frac{5 - 1}{2}} \equiv 4^2 \equiv 16 \equiv 1 \Mod{5}
+    .
+\end{equation*}
+%
+Hence $\Leg{5}{1009} = 1$. Thus, putting all of our results together we have
+%
+\begin{equation*}
+    \Leg{105}{1009}
+    = \Leg{3}{1009} \Leg{5}{1009} \Leg{7}{1009}
+    = 1 \cdot 1 \cdot 1
+    = 1
+    .
+\end{equation*}
 
 \end{document}
 
